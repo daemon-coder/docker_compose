@@ -1,0 +1,1 @@
+docker run --name php_fpm_7.1 -d -p 9001:9000 -v /var/www:/var/www -it php:7.1-fpm

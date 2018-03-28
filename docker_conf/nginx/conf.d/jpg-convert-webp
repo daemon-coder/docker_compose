@@ -1,0 +1,17 @@
+server {
+	listen 888;
+	server_name 10.236.152.29;
+	root /var/www/jpg-convert-webp/web;
+	index index.php index.html index.htm;
+
+	location / {
+        	try_files $uri $uri/ /index.php$is_args$args;
+    	}	
+
+	location ~ \.php$ {
+		fastcgi_pass 127.0.0.1:9000;
+		fastcgi_index index.php;
+	        include fastcgi.conf; 	
+#		fastcgi_param SCRIPT_FILENAME /var/www/mall-d-mi-com/public$fastcgi_script_name;
+	}
+}

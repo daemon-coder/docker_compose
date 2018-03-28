@@ -1,0 +1,9 @@
+mishop_rebate:
+ balance: random
+ conn_timeout_ms: 1000
+ protocol: binary
+ read_timeout_ms: 1000
+ transport: xm_header
+ write_timeout_ms: 500
+ servers:
+ - server: 10.236.151.226:10616

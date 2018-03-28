@@ -1,0 +1,66 @@
+nginx:
+    build: ./nginx/1.13
+    ports:
+        - "80:80"
+    links:
+        - "phpfpm"
+        - "golang"
+    extra_hosts:
+#        - "dongt.b.api.d.b2c.com:127.0.0.1"
+#        - "mall.d.mi.com:172.17.0.6"
+        - "dongt.api.d.b2c.com:172.17.0.5"
+        - "b-api.n.b2c.srv:10.237.39.47"
+        - "b-api.d.b2c.srv:10.108.230.3"
+        - "api.d.b2c.srv:10.108.163.40"
+        - "api.d.t.n.b2c.srv:10.39.1.6"
+        - "casdev.mioffice.cn:10.237.33.100"
+        - "shopapi.test.b2c.srv:10.39.1.6"
+    volumes:
+        - /var/www:/var/www
+
+phpfpm:
+    build: ./php/7.1-fpm
+    ports:
+        - "9001:9000"
+    links:
+        - "mysql"
+        - "redis"
+    extra_hosts:
+        - "dongt.b.api.d.b2c.com:172.17.0.6"
+        # - "mall.d.mi.com:172.17.0.6"
+        # - "dongt.api.d.b2c.com:172.17.0.6"
+        - "b-api.n.b2c.srv:10.237.39.47"
+        - "b-api.d.b2c.srv:10.108.230.3"
+        - "api.d.b2c.srv:10.108.163.40"
+        - "api.d.t.n.b2c.srv:10.39.1.6"
+        - "casdev.mioffice.cn:10.237.33.100"
+        - "shopapi.test.b2c.srv:10.39.1.6"
+    volumes:
+        - /var/www:/var/www
+    cap_add:
+        - ALL
+    privileged: true
+
+mysql:
+    build: ./mysql/5.7
+    ports:
+        - "3307:3306"
+    volumes:
+        - /var/www/docker_conf/mysql/mysql_data:/var/lib/mysql
+    environment:
+        - MYSQL_ROOT_PASSWORD=root
+
+redis:
+    build: ./redis/3.0
+    ports:
+        - "6380:6379"
+
+golang:
+    build: ./golang/1.8
+    ports:
+        - "6688:6688"
+    links:
+        - "mysql"
+    volumes:
+        - /var/www/go/src:/go/src
+    tty: true

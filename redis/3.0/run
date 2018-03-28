@@ -1,0 +1,1 @@
+docker run --name redis_3.0 -d -p 6380:6379 -it redis:3.0

@@ -1,0 +1,1 @@
+docker run --name nginx-1.13 -p 81:80 -v /var/www:/var/www -d -it nginx:1.13

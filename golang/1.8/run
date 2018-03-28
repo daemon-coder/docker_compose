@@ -1,0 +1,1 @@
+docker run --name golang_1.8 --link mysql_5.7:db -v /var/www/go/src:/go/src -it -d -p 6688:6688 golang:1.8
