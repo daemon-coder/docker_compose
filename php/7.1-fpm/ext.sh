@@ -2,7 +2,7 @@
 apt-get update -y 
 # apt-get install -y libssl-dev
 apt-get install -y libpng-dev
-apt-get install -y postgresql-server-dev-9.4
+apt-get install -y postgresql-server-dev-11
 # 删除多余文件
 rm -rf /var/lib/apt/lists/*
 
