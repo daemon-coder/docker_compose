@@ -8,7 +8,7 @@ nginx:
     extra_hosts:
         - "dongt.b.api.d.b2c.com:127.0.0.1"
     volumes:
-        - /usr/local/var/www:/var/www
+        - /home/jiangwei/PhpstormProjects:/var/www
 
 phpfpm:
     build: ./php/7.1-fpm
@@ -28,7 +28,7 @@ phpfpm:
         # - "casdev.mioffice.cn:10.237.33.100"
         # - "shopapi.test.b2c.srv:10.39.1.6"
     volumes:
-        - /usr/local/var/www:/var/www
+        - /home/jiangwei/PhpstormProjects:/var/www
     cap_add:
         - ALL
     privileged: true
@@ -38,7 +38,7 @@ mysql:
     ports:
         - "3307:3306"
     volumes:
-        - /usr/local/var/www/mysql_data:/var/lib/mysql
+        - /home/jiangwei/PhpstormProjects/b-d-mi-com/doc/docker/mysql_data:/var/lib/mysql
     environment:
         - MYSQL_ROOT_PASSWORD=root
 

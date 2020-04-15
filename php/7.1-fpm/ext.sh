@@ -29,3 +29,6 @@ ln -s /var/www/docker_compose/docker_conf/php/conf.d /usr/local/etc/php/
 
 # 删除home下文件
 rm -rf /home/*
+
+mkdir -p /home/work/logs/applogs/b-d.test.mi.com
+chmod -R 777 /home
