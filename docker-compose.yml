@@ -17,8 +17,9 @@ phpfpm:
     links:
         - "mysql"
         - "redis"
-    # extra_hosts:
-        # - "dongt.b.api.d.b2c.com:172.17.0.5"
+        - "soa-agent"
+    extra_hosts:
+        - "dongt.b.api.d.b2c.com:172.17.0.6"
         # - "mall.d.mi.com:172.17.0.6"
         # - "dongt.api.d.b2c.com:172.17.0.6"
         # - "b-api.n.b2c.srv:10.237.39.47"
@@ -56,3 +57,7 @@ redis:
 #     volumes:
 #         - /usr/local/var/www/go/src:/go/src
 #     tty: true
+soa-agent:
+    build: ./soa_agent
+#    volumes:
+#        - /home/jiangwei/PhpstormProjects/soa-agent:/home/soa-agent
