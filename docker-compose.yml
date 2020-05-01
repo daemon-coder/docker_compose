@@ -5,10 +5,10 @@ nginx:
     links:
         - "phpfpm"
         # - "golang"
-    extra_hosts:
-        - "dongt.b.api.d.b2c.com:127.0.0.1"
+    #extra_hosts:
+    #    - "dongt.b.api.d.b2c.com:127.0.0.1"
     volumes:
-        - /home/jiangwei/PhpstormProjects:/var/www
+        - /home/jianwei/code/xiaomi:/var/www
 
 phpfpm:
     build: ./php/7.1-fpm
@@ -17,7 +17,7 @@ phpfpm:
     links:
         - "mysql"
         - "redis"
-        - "soa-agent"
+        # - "soa-agent"
     extra_hosts:
         - "dongt.b.api.d.b2c.com:172.17.0.6"
         # - "mall.d.mi.com:172.17.0.6"
@@ -29,7 +29,7 @@ phpfpm:
         # - "casdev.mioffice.cn:10.237.33.100"
         # - "shopapi.test.b2c.srv:10.39.1.6"
     volumes:
-        - /home/jiangwei/PhpstormProjects:/var/www
+        - /home/jianwei/code/xiaomi:/var/www
     cap_add:
         - ALL
     privileged: true
@@ -39,7 +39,7 @@ mysql:
     ports:
         - "3307:3306"
     volumes:
-        - /home/jiangwei/PhpstormProjects/b-d-mi-com/doc/docker/mysql_data:/var/lib/mysql
+        - /home/jianwei/code/xiaomi/b-d-mi-com/doc/docker/mysql_data:/var/lib/mysql
     environment:
         - MYSQL_ROOT_PASSWORD=root
 
@@ -57,7 +57,8 @@ redis:
 #     volumes:
 #         - /usr/local/var/www/go/src:/go/src
 #     tty: true
-soa-agent:
-    build: ./soa_agent
+
+# soa-agent:
+#    build: ./soa_agent
 #    volumes:
-#        - /home/jiangwei/PhpstormProjects/soa-agent:/home/soa-agent
+#        - /home/jianwei/code/xiaomi/soa-agent:/home/soa-agent
