@@ -1,0 +1,7 @@
+docker run --name go -p 10501:10501 -p 8000:8000 -p 10992:10992 -p 10993:10993 --link docker_compose_soa-agent_1:soa-agent --link docker_compose_mysql_1:mysql -v /Users/daemoncoder/code/xiaomi:/code -it ubuntugo bash
+docker start go
+docker exec -it go bash
+
+docker run --name myos -p 10501:10501 -p 8000:8000 -p 10992:10992 -p 10993:10993 -p 3000:3000 -v /Users/daemoncoder/code/xiaomi:/code -it myubuntu bash
+
+docker run --name fe -p 18888:8888 -v /Users/daemoncoder/code:/code -it myubuntu bash
