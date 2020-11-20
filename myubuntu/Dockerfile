@@ -8,7 +8,7 @@ ENV SOA_TOOL=/code/soa_tools
 ENV GOXMLIB=/code/xmlib 
 ENV KOALA=/code/koala 
 ENV PFPATH=/code/service
-ENV GOPATH=/code/gocode
+ENV GOPATH=/code/koala_apps
 ENV PATH=$GOROOT/bin:$SOA_TOOL:$NODE_PATH/bin:$PATH 
 
 COPY go1.12.17.linux-amd64.tar.gz node-v14.2.0-linux-x64.tar.gz glide /root/

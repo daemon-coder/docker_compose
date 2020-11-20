@@ -18,16 +18,8 @@ phpfpm:
         - "mysql"
         - "redis"
         - "soa-agent"
-    #extra_hosts:
-        #- "dongt.b.api.d.b2c.com:172.17.0.6"
-        # - "mall.d.mi.com:172.17.0.6"
-        # - "dongt.api.d.b2c.com:172.17.0.6"
-        # - "b-api.n.b2c.srv:10.237.39.47"
-        # - "b-api.d.b2c.srv:10.108.230.3"
-        # - "api.d.b2c.srv:10.108.163.40"
-        # - "api.d.t.n.b2c.srv:10.39.1.6"
-        # - "casdev.mioffice.cn:10.237.33.100"
-        # - "shopapi.test.b2c.srv:10.39.1.6"
+    extra_hosts:
+        - "b-api.test.mi.com:172.17.0.7"
     volumes:
         - /Users/daemoncoder/code/xiaomi:/var/www
     cap_add:

@@ -2,6 +2,6 @@ docker run --name go -p 10501:10501 -p 8000:8000 -p 10992:10992 -p 10993:10993 -
 docker start go
 docker exec -it go bash
 
-docker run --name myos -p 10501:10501 -p 8000:8000 -p 10992:10992 -p 10993:10993 -p 3000:3000 -v /Users/daemoncoder/code/xiaomi:/code -it myubuntu bash
+docker run --name myos -p 10501:10501 -p 8000:8000 -p 8088:8088 -p 10992:10992 -p 10993:10993 -p 3000:3000 -p 3001:3001  -p 6020:6020 -v /Users/daemoncoder/code/xiaomi:/code -it myubuntu bash
 
 docker run --name wx.d -p 8989:8989 -v /Users/daemoncoder/code/xiaomi:/code -it myubuntu bash
